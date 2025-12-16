@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-2xl my-4xl bg-red-600">
+  <div class="mx-auto max-w-2xl my-12 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.26)] p-5">
     <slot></slot>
   </div>
 </template>

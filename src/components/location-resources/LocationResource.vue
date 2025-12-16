@@ -1,18 +1,20 @@
 <template>
   <base-card>
     <li>
-      <header>
-        <h2>Title 1</h2>
+      <header class="flex justify-between">
+        <h2 class="text-lg font-bold">{{ title }}</h2>
         <button>Delete</button>
       </header>
-      <p>Description</p>
-      <nav>
-        <a href="" class="text-red-100">View Location</a>
+      <p class="text-base">{{ description }}</p>
+      <nav class="pt-2 bg-amber-300">
+        <a :href="link" class="text-blue-500">View Location</a>
       </nav>
     </li>
   </base-card>
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['id', 'title', 'description', 'link'],
+}
 </script>
