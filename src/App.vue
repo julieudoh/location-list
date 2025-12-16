@@ -1,13 +1,17 @@
 <template>
-  <the-header></the-header>
+  <ul>
+    <location-resource></location-resource>
+  </ul>
 </template>
 
 <script>
-import TheHeader from './components/layouts/TheHeader.vue'
+// import TheHeader from './components/layouts/TheHeader.vue'
+import LocationResource from './components/location-resources/LocationResource.vue'
 
 export default {
   components: {
-    TheHeader,
+    // TheHeader,
+    LocationResource,
   },
 }
 </script>
