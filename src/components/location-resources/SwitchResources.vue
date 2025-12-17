@@ -62,6 +62,14 @@ export default {
       return this.selectedTab === 'add-resource' ? null : 'flat'
     },
   },
+  mounted() {
+    const storedData = localStorage.getItem('resourseslist')
+    if (storedData) {
+      this.storeResources = JSON.parse(storedData)
+    } else {
+      localStorage.setItem('resourseslist', JSON.stringify(this.storeResources))
+    }
+  },
   methods: {
     switchResources(tab) {
       this.selectedTab = tab
@@ -76,10 +84,14 @@ export default {
       }
       this.storeResources.unshift(newResource)
       this.selectedTab = 'stored-resources'
+
+      localStorage.setItem('resourseslist', JSON.stringify(this.storeResources))
     },
     removeResource(resId) {
       const resIndex = this.storeResources.findIndex((res) => res.id === resId)
       this.storeResources.splice(resIndex, 1)
+
+      localStorage.setItem('resourseslist', JSON.stringify(this.storeResources))
     },
   },
 }

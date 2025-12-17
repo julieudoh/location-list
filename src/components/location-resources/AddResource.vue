@@ -1,4 +1,11 @@
 <template>
+  <base-dialog v-if="inputIsInvalid" title="Invalid Input" @close="confirmError">
+    <template #default>
+      <p>Unfortunately One or more Input is Invalid!!</p>
+      <p>Please check all input field and make sure you fill in each fields.</p>
+    </template>
+    <template #actions><base-button @click="confirmError">Close</base-button> </template>
+  </base-dialog>
   <base-card>
     <form @submit.prevent="submitData">
       <div class="my-4 mx-0">
@@ -49,6 +56,7 @@ export default {
       titleInput: '',
       descriptionInput: '',
       linkInput: '',
+      inputIsInvalid: false,
     }
   },
   methods: {
@@ -62,11 +70,14 @@ export default {
         enteredDescription.trim() === '' ||
         enteredLink.trim() === ''
       ) {
-        alert('Enter Something')
+        this.inputIsInvalid = true
         return
       }
 
       this.addResource(enteredTitle, enteredDescription, enteredLink)
+    },
+    confirmError() {
+      this.inputIsInvalid = false
     },
   },
 }
