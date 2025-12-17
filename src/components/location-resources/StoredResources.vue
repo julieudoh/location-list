@@ -15,7 +15,7 @@
 import LocationResource from './LocationResource.vue'
 
 export default {
-  props: ['resources'],
+  inject: ['resources'],
   components: {
     LocationResource,
   },

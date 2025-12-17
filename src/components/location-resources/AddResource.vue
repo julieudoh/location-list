@@ -1,12 +1,13 @@
 <template>
   <base-card>
-    <form>
+    <form @submit.prevent="submitData">
       <div class="my-4 mx-0">
         <label for="title" class="mb-2 block text-indigo-700 font-bold text-lg">Title</label>
         <input
           type="text"
           name="title"
           id="title"
+          v-model="titleInput"
           class="block w-full p-[0.15rem] border border-solid border-[#ccc] focus:outline-none focus:border-indigo-700 focus:bg-indigo-200"
         />
       </div>
@@ -19,6 +20,7 @@
           name="description"
           id="description"
           rows="3"
+          v-model="descriptionInput"
           class="block w-full p-[0.15rem] border border-solid border-[#ccc] focus:outline-none focus:border-indigo-700 focus:bg-indigo-200"
         ></textarea>
       </div>
@@ -28,6 +30,7 @@
           type="text"
           name="link"
           id="link"
+          v-model="linkInput"
           class="block w-full p-[0.15rem] border border-solid border-[#ccc] focus:outline-none focus:border-indigo-700 focus:bg-indigo-200"
         />
       </div>
@@ -37,3 +40,26 @@
     </form>
   </base-card>
 </template>
+
+<script>
+export default {
+  inject: ['addResource'],
+  data() {
+    return {
+      titleInput: '',
+      descriptionInput: '',
+      linkInput: '',
+    }
+  },
+  methods: {
+    submitData() {
+      const enteredTitle = this.titleInput
+      const enteredDescription = this.descriptionInput
+      const enteredLink = this.linkInput
+
+      console.log(enteredTitle, enteredDescription, enteredLink)
+      this.addResource(enteredTitle, enteredDescription, enteredLink)
+    },
+  },
+}
+</script>

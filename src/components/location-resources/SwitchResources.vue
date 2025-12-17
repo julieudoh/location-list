@@ -8,7 +8,7 @@
     >
   </base-card>
   <keep-alive>
-    <component :is="selectedTab" :resources="resources"></component>
+    <component :is="selectedTab"></component>
   </keep-alive>
 </template>
 
@@ -46,6 +46,12 @@ export default {
       ],
     }
   },
+  provide() {
+    return {
+      resources: this.resources,
+      addResource: this.addResource,
+    }
+  },
   computed: {
     storedRescourseButtonMode() {
       return this.selectedTab === 'stored-resources' ? null : 'flat'
@@ -57,6 +63,18 @@ export default {
   methods: {
     switchResources(tab) {
       this.selectedTab = tab
+    },
+
+    addResource(title, description, url) {
+      const newResource = {
+        id: new Date().toISOString(),
+        title: title,
+        description: description,
+        link: url,
+      }
+
+      this.resources.unshift(newResource)
+      this.selectedTab = 'stored-resources'
     },
   },
 }
