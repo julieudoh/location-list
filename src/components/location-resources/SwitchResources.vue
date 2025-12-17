@@ -1,7 +1,11 @@
 <template>
   <base-card>
-    <base-button @click="switchResources('stored-resources')">Stored Resources</base-button>
-    <base-button @click="switchResources('add-resource')">Add Resource</base-button>
+    <base-button @click="switchResources('stored-resources')" :mode="storedRescourseButtonMode"
+      >Stored Resources</base-button
+    >
+    <base-button @click="switchResources('add-resource')" :mode="addRescourseButtonMode"
+      >Add Resource</base-button
+    >
   </base-card>
   <keep-alive>
     <component :is="selectedTab" :resources="resources"></component>
@@ -42,10 +46,17 @@ export default {
       ],
     }
   },
+  computed: {
+    storedRescourseButtonMode() {
+      return this.selectedTab === 'stored-resources' ? null : 'flat'
+    },
+    addRescourseButtonMode() {
+      return this.selectedTab === 'add-resource' ? null : 'flat'
+    },
+  },
   methods: {
     switchResources(tab) {
       this.selectedTab = tab
-      console.log(this.selectedTab)
     },
   },
 }
