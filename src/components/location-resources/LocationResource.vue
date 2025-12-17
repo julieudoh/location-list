@@ -6,7 +6,7 @@
         <button>Delete</button>
       </header>
       <p class="text-base">{{ description }}</p>
-      <nav class="pt-2 bg-amber-300">
+      <nav class="pt-2">
         <a :href="link" class="text-blue-500">View Location</a>
       </nav>
     </li>

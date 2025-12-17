@@ -1,14 +1,15 @@
 <template>
+  <the-header title="List of Fun Locations In Lagos"></the-header>
   <stored-resources :resources="resources"></stored-resources>
 </template>
 
 <script>
-// import TheHeader from './components/layouts/TheHeader.vue'
+import TheHeader from './components/layouts/TheHeader.vue'
 import StoredResources from './components/location-resources/StoredResources.vue'
 
 export default {
   components: {
-    // TheHeader,
+    TheHeader,
     StoredResources,
   },
   data() {
