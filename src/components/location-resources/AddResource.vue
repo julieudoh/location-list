@@ -57,7 +57,15 @@ export default {
       const enteredDescription = this.descriptionInput
       const enteredLink = this.linkInput
 
-      console.log(enteredTitle, enteredDescription, enteredLink)
+      if (
+        enteredTitle.trim() === '' ||
+        enteredDescription.trim() === '' ||
+        enteredLink.trim() === ''
+      ) {
+        alert('Enter Something')
+        return
+      }
+
       this.addResource(enteredTitle, enteredDescription, enteredLink)
     },
   },

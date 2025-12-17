@@ -3,7 +3,7 @@
     <li>
       <header class="flex justify-between">
         <h2 class="text-lg font-bold">{{ title }}</h2>
-        <button>Delete</button>
+        <base-button>Delete</base-button>
       </header>
       <p class="text-base">{{ description }}</p>
       <nav class="pt-2">
