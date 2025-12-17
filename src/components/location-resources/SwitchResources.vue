@@ -52,6 +52,7 @@ export default {
       addResource: this.addResource,
     }
   },
+  created() {},
   computed: {
     storedRescourseButtonMode() {
       return this.selectedTab === 'stored-resources' ? null : 'flat'
