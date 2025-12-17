@@ -1,12 +1,10 @@
 <template>
   <base-card>
-    <base-button @click="switchResources('stored-resources')" :resources="resources"
-      >Stored Resources</base-button
-    >
+    <base-button @click="switchResources('stored-resources')">Stored Resources</base-button>
     <base-button @click="switchResources('add-resource')">Add Resource</base-button>
   </base-card>
   <keep-alive>
-    <component :is="selectedTab"></component>
+    <component :is="selectedTab" :resources="resources"></component>
   </keep-alive>
 </template>
 
