@@ -1,24 +1,15 @@
 <template>
-  <ul>
-    <location-resource
-      v-for="res in resources"
-      :key="res.id"
-      :id="res.id"
-      :title="res.title"
-      :description="res.description"
-      :link="res.link"
-    ></location-resource>
-  </ul>
+  <stored-resources :resources="resources"></stored-resources>
 </template>
 
 <script>
 // import TheHeader from './components/layouts/TheHeader.vue'
-import LocationResource from './components/location-resources/LocationResource.vue'
+import StoredResources from './components/location-resources/StoredResources.vue'
 
 export default {
   components: {
     // TheHeader,
-    LocationResource,
+    StoredResources,
   },
   data() {
     return {
@@ -43,11 +34,6 @@ export default {
         },
       ],
     }
-  },
-  methods: {
-    storedResources() {
-      console.log(this.resources.length)
-    },
   },
 }
 </script>
