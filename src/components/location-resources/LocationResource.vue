@@ -3,7 +3,7 @@
     <li>
       <header class="flex justify-between">
         <h2 class="text-lg font-bold">{{ title }}</h2>
-        <base-button>Delete</base-button>
+        <base-button @click="deleteResource(id)">Delete</base-button>
       </header>
       <p class="text-base">{{ description }}</p>
       <nav class="pt-2">
@@ -16,5 +16,6 @@
 <script>
 export default {
   props: ['id', 'title', 'description', 'link'],
+  inject: ['deleteResource'],
 }
 </script>

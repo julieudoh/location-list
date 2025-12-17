@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       selectedTab: 'stored-resources',
-      resources: [
+      storeResources: [
         {
           id: '001',
           title: 'Ikeja City Mall',
@@ -48,11 +48,12 @@ export default {
   },
   provide() {
     return {
-      resources: this.resources,
+      resources: this.storeResources,
       addResource: this.addResource,
+      deleteResource: this.removeResource,
     }
   },
-  created() {},
+
   computed: {
     storedRescourseButtonMode() {
       return this.selectedTab === 'stored-resources' ? null : 'flat'
@@ -73,9 +74,12 @@ export default {
         description: description,
         link: url,
       }
-
-      this.resources.unshift(newResource)
+      this.storeResources.unshift(newResource)
       this.selectedTab = 'stored-resources'
+    },
+    removeResource(resId) {
+      const resIndex = this.storeResources.findIndex((res) => res.id === resId)
+      this.storeResources.splice(resIndex, 1)
     },
   },
 }
